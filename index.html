@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Create a QR code from any text or URL." />
+    <title>QR-Gen — QR generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand" href="#top" aria-label="QR-Gen home"><span class="brand-mark">Q</span>QR-Gen</a>
+        <span class="nav-note"><i></i> Private by design</span>
+      </nav>
+
+      <section class="hero" id="top">
+        <p class="eyebrow">Instant QR creator</p>
+        <h1>Turn anything into<br /><em>a scannable moment.</em></h1>
+        <p class="intro">Drop in a link, a note, contact details, or any message. Your QR code is created right here in your browser.</p>
+      </section>
+
+      <section class="generator" aria-labelledby="generator-title">
+        <div class="controls">
+          <div class="section-label"><span>01</span><h2 id="generator-title">Your content</h2></div>
+          <label for="content">URL or text</label>
+          <textarea id="content" rows="5" maxlength="1200" placeholder="https://example.com or write anything…">https://QR-Gen.example/hello</textarea>
+          <div class="input-meta"><span id="char-count">30 / 1200</span><button id="clear-button" type="button">Clear</button></div>
+
+          <div class="section-label customize-label"><span>02</span><h2>Style it</h2></div>
+          <div class="style-grid">
+            <label class="color-field" for="foreground">Code color <span><input id="foreground" type="color" value="#17233d" /><b id="foreground-value">#17233D</b></span></label>
+            <label class="color-field" for="background">Background <span><input id="background" type="color" value="#ffffff" /><b id="background-value">#FFFFFF</b></span></label>
+          </div>
+          <fieldset class="size-field">
+            <legend>Image size</legend>
+            <div class="size-options">
+              <label><input type="radio" name="size" value="180" /> <span>Small</span></label>
+              <label><input type="radio" name="size" value="280" checked /> <span>Medium</span></label>
+              <label><input type="radio" name="size" value="400" /> <span>Large</span></label>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="preview-panel">
+          <div class="preview-heading"><span class="section-label"><span>03</span><h2>Ready to scan</h2></span><span class="live-pill">Live</span></div>
+          <div class="qr-stage" id="qr-stage"><div id="qrcode" aria-label="Generated QR code"></div></div>
+          <p class="scan-hint">Point your camera here to test it</p>
+          <button class="download-button" id="download-button" type="button"><span>↓</span> Download PNG</button>
+        </div>
+      </section>
+
+      <footer><span>QR-Gen <b>©</b> 2026</span><span>Made for quick sharing</span></footer>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
